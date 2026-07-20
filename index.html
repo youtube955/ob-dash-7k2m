@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+  <html lang="ja">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>otokobible.jp 管理ダッシュボード</title>
+  <style>
+  :root{--bg:#0E1116;--panel:#161B22;--panel-soft:#1C232C;--line:#2A333E;--crimson:#C41E3A;--crimson-soft:rgba(196,30,58,.14);--gold:#C9A227;--green:#3FB27F;--amber:#D98E32;--text:#E8E6E1;--sub:#8B95A1;--mono:'SF Mono','Cascadia Mono','Roboto Mono',monospace} *{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--text);font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif;padding:28px 20px 60px;min-height:100vh} .wrap{max-width:960px;margin:0 auto} .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:22px} .eyebrow{font-family:var(--mono);font-size:11px;color:var(--crimson);letter-spacing:.25em;font-weight:700} h1{font-size:24px;font-weight:800;margin-top:6px;letter-spacing:.02em} .meta{text-align:right;font-family:var(--mono);font-size:11px;color:var(--sub);line-height:1.8} .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-bottom:16px} .milestone{background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(196,30,58,.10));border:1px solid var(--gold)} .m-title{font-size:15px;font-weight:800;color:var(--gold);letter-spacing:.04em} .m-body{font-size:13px;line-height:1.8;margin-top:6px} .m-sub{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:6px} .phase-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px} .phase-label{color:var(--gold);font-family:var(--mono);margin-right:10px} .bar{height:6px;background:var(--panel-soft);border-radius:3px;margin-top:12px;overflow:hidden} .bar-fill{height:100%;background:var(--crimson);border-radius:3px;width:.5%} .phase-note{font-size:11.5px;color:var(--sub);margin-top:8px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px} .ch{display:flex;flex-direction:column;gap:12px} .ch-name{font-size:15px;font-weight:700;letter-spacing:.04em} .ch-handle{font-size:11px;color:var(--sub);font-family:var(--mono);margin-top:2px} .primary{border-top:1px solid var(--line);padding-top:12px} .p-label{font-size:11px;color:var(--sub);letter-spacing:.08em} .p-value{font-family:var(--mono);font-size:30px;font-weight:700} .delta{font-family:var(--mono);font-size:11px;font-weight:600;border-radius:3px;padding:2px 6px;margin-left:8px} .delta.up{color:var(--green);background:rgba(63,178,127,.15)} .delta.flat{color:var(--sub);background:var(--panel-soft)} .delta .vs{opacity:.65;font-weight:400} .rows{display:flex;flex-direction:column;gap:6px} .row{display:flex;justify-content:space-between;font-size:12.5px;padding:3px 0} .row .k{color:var(--sub)} .row .v{font-family:var(--mono)} .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle} .dot.good{background:var(--green)}.dot.warn{background:var(--amber)}.dot.critical{background:var(--crimson)} .v.good{color:var(--green);font-weight:600}.v.warn{color:var(--amber);font-weight:600}.v.critical{color:var(--crimson);font-weight:600} .ch-note{font-size:12px;color:var(--sub);line-height:1.6;border-left:2px solid var(--crimson);padding-left:10px} .blockers{background:var(--crimson-soft);border:1px solid var(--crimson)} .b-head{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px} .b-head .sq{color:var(--crimson);font-family:var(--mono)} .b-item{margin-top:14px} .b-title{font-size:13px;font-weight:700} .b-body{font-size:12.5px;opacity:.85;line-height:1.7;margin-top:4px} .b-owner{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:4px} .r-head{font-size:13.5px;font-weight:700;margin-bottom:12px} .r-head .dia{color:var(--gold);font-family:var(--mono);margin-right:8px} .r-item{border-top:1px solid var(--line);padding-top:10px;margin-top:12px} .r-item:first-of-type{margin-top:0} .r-name{font-size:13px;font-weight:600} .r-cycle{font-size:12px;color:var(--sub);margin-top:3px} .r-cycle b{color:var(--text);font-weight:600} .r-agent{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:3px} .footer{text-align:center;font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:24px;letter-spacing:.1em}
+  </style>
+  </head>
+  <body>
+  <div class="wrap">
+  <div class="header">
+  <div><div class="eyebrow">OTOKOBIBLE.JP — HUB</div><h1>管理ダッシュボード</h1></div>
+  <div class="meta">実測 2026/07/20 5:43-5:45(月曜定例)<br>(Note売上・Pinterestは計測不可)<br>前回比較 2026/06/24</div>
+  </div>
+  <div class="card milestone">
+  <div class="m-title">初売上 達成 — Note</div>
+  <div class="m-body">「40代男性の7割が知らない——男性ホルモンが激減する『3つの日常習慣』と、今夜から変える方法」(単体有料記事 ¥300)／購入 2026/07/11 23:22</div>
+  <div class="m-sub">販売履歴にて実測確定(2026/07/12 計測)</div>
+  </div>
+  <div class="card">
+  <div class="phase-head">
+  <div style="font-size:13px;font-weight:700"><span class="phase-label">Phase 1</span>目標 月商 ¥1,000,000</div>
+  <div style="font-family:var(--mono);font-size:13px">今月 <span style="color:var(--gold);font-weight:700">¥300</span><span style="color:var(--sub)"> / ¥1,000,000</span></div>
+  </div>
+  <div class="bar"><div class="bar-fill"></div></div>
+  <div class="phase-note">収益源はNoteメンバーシップ(¥2,980/月・初月無料)と単体¥300記事。</div>
+  </div>
+  <div class="grid">
+  <div class="card ch" style="margin-bottom:0">
+  <div><div class="ch-name">Note</div><div class="ch-handle">如風(@ideal_squid1080)</div></div>
+  <div class="primary"><div class="p-label">フォロワー</div>
+  <div><span class="p-value">269</span><span class="delta up">+90 <span class="vs">vs 6/24</span></span></div></div>
+  <div class="rows">
+  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:43</span></div>
+  <div class="row"><span class="k"><span class="dot good"></span>今月売上</span><span class="v good">¥300(7/12実測・1件)</span></div>
+  <div class="row"><span class="k"><span class="dot warn"></span>売上の当日計測</span><span class="v warn">不可(要PW再確認)</span></div>
+  <div class="row"><span class="k">記事総数</span><span class="v">144本(+1)</span></div>
+  <div class="row"><span class="k">初月無料</span><span class="v">ON</span></div>
+  </div>
+  <div class="ch-note">フォロワー+7(前日比)。TikTok失速下でも増加が続く＝Note単体で読者を獲得できている。9日間で+38。</div>
+  </div>
+  <div class="card ch" style="margin-bottom:0">
+  <div><div class="ch-name">TikTok</div><div class="ch-handle">@otokobible.jp</div></div>
+  <div class="primary"><div class="p-label">フォロワー</div>
+  <div><span class="p-value">1,500</span><span class="delta up">+200 <span class="vs">vs 6/24</span></span></div></div>
+  <div class="rows">
+  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:44</span></div>
+  <div class="row"><span class="k"><span class="dot warn"></span>動画視聴(7日間)</span><span class="v warn">1,186(-77.2%)下げ止まり</span></div>
+  <div class="row"><span class="k"><span class="dot critical"></span>いいね(7日間)</span><span class="v critical">26(-88.2%)</span></div>
+  <div class="row"><span class="k"><span class="dot critical"></span>純増フォロワー(7日)</span><span class="v critical">7人(-94.7%)</span></div>
+  <div class="row"><span class="k">視聴者属性</span><span class="v">男性68%／45歳↑72%</span></div>
+  </div>
+  <div class="ch-note">原因＝投稿頻度の低下(7月は5本のみ／従来は毎日)。7/20は下げ止まりの兆し:おすすめ流入56%へ回復、シェア10件。対策＝指示書#008の7日連続投稿。</div>
+  </div>
+  <div class="card ch" style="margin-bottom:0">
+  <div><div class="ch-name">Pinterest</div><div class="ch-handle">@otokobible</div></div>
+  <div class="primary"><div class="p-label">月間ビュー</div>
+  <div><span class="p-value">1,655</span><span class="delta flat">7/10時点</span></div></div>
+  <div class="rows">
+  <div class="row"><span class="k">ピン</span><span class="v">22枚 / 目標1,000</span></div>
+  <div class="row"><span class="k"><span class="dot warn"></span>増産</span><span class="v warn">指示書#003 待機中</span></div>
+  </div>
+  <div class="ch-note">7/20も計測不可(9日連続)。数値はすべて7/10最終実測。スマホのビジネスハブ確認が唯一の計測手段。</div>
+  </div>
+  <div class="card ch" style="margin-bottom:0">
+  <div><div class="ch-name">Instagram</div><div class="ch-handle">@bible.of.men</div></div>
+  <div class="primary"><div class="p-label">フォロワー</div>
+  <div><span class="p-value">31</span><span class="delta up">+1 <span class="vs">vs 6/24</span></span></div></div>
+  <div class="rows">
+  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:44</span></div>
+  <div class="row"><span class="k"><span class="dot good"></span>投稿</span><span class="v good">71本(+1)</span></div>
+  <div class="row"><span class="k">実施手段</span><span class="v">スマホアプリ</span></div>
+  </div>
+  <div class="ch-note">投稿が着実に増加。Reels転用が動き始めた。</div>
+  </div>
+  </div>
+  <div class="card blockers">
+  <div class="b-head"><span class="sq">■</span>最優先課題</div>
+  <div class="b-item">
+  <div class="b-title">① TikTok復活(指示書#008)</div>
+  <div class="b-body">7日連続投稿への復帰。台本7本はClaude Codeで生産中。投稿は毎朝7〜8時に固定(フォロワー最活性が午前8時と実測)。</div>
+  <div class="b-owner">担当: Claude Code(台本)→ 会長(撮影・投稿)</div>
+  </div>
+  <div class="b-item">
+  <div class="b-title">② Pinterest計測手段の確立</div>
+  <div class="b-body">デスクトップから9日連続で計測不可。スマホのビジネスハブ経由の定常化が必要。</div>
+  <div class="b-owner">担当: 会長(スマホ)</div>
+  </div>
+  </div>
+  <div class="card">
+  <div class="r-head"><span class="dia">◆</span>定常ルーティン</div>
+  <div class="r-item">
+  <div class="r-name">定例KPIレビュー(全チャネル実測)</div>
+  <div class="r-cycle">サイクル: 毎週月曜 9:00　／　次回: <b>7/27(月)</b></div>
+  <div class="r-agent">実行: 黒ちゃん + Claude in Chrome</div>
+</div>
+<div class="r-item">
+<div class="r-name">ダッシュボード更新</div>
+  <div class="r-cycle">サイクル: 毎日 5:00(HUBで「更新」と一言)</div>
+  <div class="r-agent">実行: 黒ちゃん(実測・反映)</div>
+  </div>
+  <div class="r-item">
+  <div class="r-name">指示書#005: 健康×名指し型¥300記事</div>
+  <div class="r-cycle">1本目(睡眠)7/14公開済　／　残り2本</div>
+  <div class="r-agent">実行: Claude Code → 黒ちゃん検収 → 会長承認</div>
+  </div>
+  <div class="r-item">
+  <div class="r-name">メンバーシップ記事 週次生産</div>
+  <div class="r-cycle">サイクル: 4週テーマローテ　／　<b>検収ゲート運用中</b></div>
+  <div class="r-agent">実行: Claude Code</div>
+  </div>
+  </div>
+  <div class="footer">発行: 黒ちゃん(HUB)— 指示・検収・進捗管理</div>
+  </div>
+  </body>
+  </html>
