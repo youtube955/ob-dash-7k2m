@@ -1,119 +1,362 @@
 <!DOCTYPE html>
-  <html lang="ja">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>otokobible.jp 管理ダッシュボード</title>
-  <style>
-  :root{--bg:#0E1116;--panel:#161B22;--panel-soft:#1C232C;--line:#2A333E;--crimson:#C41E3A;--crimson-soft:rgba(196,30,58,.14);--gold:#C9A227;--green:#3FB27F;--amber:#D98E32;--text:#E8E6E1;--sub:#8B95A1;--mono:'SF Mono','Cascadia Mono','Roboto Mono',monospace} *{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--text);font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif;padding:28px 20px 60px;min-height:100vh} .wrap{max-width:960px;margin:0 auto} .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:22px} .eyebrow{font-family:var(--mono);font-size:11px;color:var(--crimson);letter-spacing:.25em;font-weight:700} h1{font-size:24px;font-weight:800;margin-top:6px;letter-spacing:.02em} .meta{text-align:right;font-family:var(--mono);font-size:11px;color:var(--sub);line-height:1.8} .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-bottom:16px} .milestone{background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(196,30,58,.10));border:1px solid var(--gold)} .m-title{font-size:15px;font-weight:800;color:var(--gold);letter-spacing:.04em} .m-body{font-size:13px;line-height:1.8;margin-top:6px} .m-sub{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:6px} .phase-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px} .phase-label{color:var(--gold);font-family:var(--mono);margin-right:10px} .bar{height:6px;background:var(--panel-soft);border-radius:3px;margin-top:12px;overflow:hidden} .bar-fill{height:100%;background:var(--crimson);border-radius:3px;width:.5%} .phase-note{font-size:11.5px;color:var(--sub);margin-top:8px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px} .ch{display:flex;flex-direction:column;gap:12px} .ch-name{font-size:15px;font-weight:700;letter-spacing:.04em} .ch-handle{font-size:11px;color:var(--sub);font-family:var(--mono);margin-top:2px} .primary{border-top:1px solid var(--line);padding-top:12px} .p-label{font-size:11px;color:var(--sub);letter-spacing:.08em} .p-value{font-family:var(--mono);font-size:30px;font-weight:700} .delta{font-family:var(--mono);font-size:11px;font-weight:600;border-radius:3px;padding:2px 6px;margin-left:8px} .delta.up{color:var(--green);background:rgba(63,178,127,.15)} .delta.flat{color:var(--sub);background:var(--panel-soft)} .delta .vs{opacity:.65;font-weight:400} .rows{display:flex;flex-direction:column;gap:6px} .row{display:flex;justify-content:space-between;font-size:12.5px;padding:3px 0} .row .k{color:var(--sub)} .row .v{font-family:var(--mono)} .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle} .dot.good{background:var(--green)}.dot.warn{background:var(--amber)}.dot.critical{background:var(--crimson)} .v.good{color:var(--green);font-weight:600}.v.warn{color:var(--amber);font-weight:600}.v.critical{color:var(--crimson);font-weight:600} .ch-note{font-size:12px;color:var(--sub);line-height:1.6;border-left:2px solid var(--crimson);padding-left:10px} .blockers{background:var(--crimson-soft);border:1px solid var(--crimson)} .b-head{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px} .b-head .sq{color:var(--crimson);font-family:var(--mono)} .b-item{margin-top:14px} .b-title{font-size:13px;font-weight:700} .b-body{font-size:12.5px;opacity:.85;line-height:1.7;margin-top:4px} .b-owner{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:4px} .r-head{font-size:13.5px;font-weight:700;margin-bottom:12px} .r-head .dia{color:var(--gold);font-family:var(--mono);margin-right:8px} .r-item{border-top:1px solid var(--line);padding-top:10px;margin-top:12px} .r-item:first-of-type{margin-top:0} .r-name{font-size:13px;font-weight:600} .r-cycle{font-size:12px;color:var(--sub);margin-top:3px} .r-cycle b{color:var(--text);font-weight:600} .r-agent{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:3px} .footer{text-align:center;font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:24px;letter-spacing:.1em}
-  </style>
-  </head>
-  <body>
-  <div class="wrap">
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>otokobible.jp 管理ダッシュボード</title>
+<style>
+  :root{
+    --bg:#0E1116; --panel:#161B22; --panel-soft:#1C232C; --line:#2A333E;
+    --crimson:#C41E3A; --crimson-soft:rgba(196,30,58,.14);
+    --gold:#C9A227; --green:#3FB27F; --amber:#D98E32;
+    --text:#E8E6E1; --sub:#8B95A1;
+    --mono:'SF Mono','Cascadia Mono','Roboto Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif;
+    padding:28px 20px 60px; min-height:100vh;
+  }
+  .wrap{max-width:960px;margin:0 auto}
+  .header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11px;color:var(--crimson);letter-spacing:.25em;font-weight:700}
+  h1{font-size:24px;font-weight:800;margin-top:6px;letter-spacing:.02em}
+  .meta{text-align:right;font-family:var(--mono);font-size:11px;color:var(--sub);line-height:1.8}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-bottom:16px}
+
+  .milestone{
+    background:linear-gradient(135deg, rgba(201,162,39,.12), rgba(196,30,58,.10));
+    border:1px solid var(--gold);
+  }
+  .milestone .m-title{font-size:15px;font-weight:800;color:var(--gold);letter-spacing:.04em}
+  .milestone .m-body{font-size:13px;line-height:1.8;margin-top:6px}
+  .milestone .m-sub{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:6px}
+
+  .phase-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .phase-label{color:var(--gold);font-family:var(--mono);margin-right:10px}
+  .bar{height:6px;background:var(--panel-soft);border-radius:3px;margin-top:12px;overflow:hidden}
+  .bar-fill{height:100%;background:var(--crimson);border-radius:3px;width:.5%}
+  .phase-note{font-size:11.5px;color:var(--sub);margin-top:8px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px}
+  .ch{display:flex;flex-direction:column;gap:12px}
+  .ch-name{font-size:15px;font-weight:700;letter-spacing:.04em}
+  .ch-handle{font-size:11px;color:var(--sub);font-family:var(--mono);margin-top:2px}
+  .primary{border-top:1px solid var(--line);padding-top:12px}
+  .p-label{font-size:11px;color:var(--sub);letter-spacing:.08em}
+  .p-value{font-family:var(--mono);font-size:30px;font-weight:700;letter-spacing:-.01em}
+  .delta{font-family:var(--mono);font-size:11px;font-weight:600;border-radius:3px;padding:2px 6px;margin-left:8px}
+  .delta.up{color:var(--green);background:rgba(63,178,127,.15)}
+  .delta.flat{color:var(--sub);background:var(--panel-soft)}
+  .delta .vs{opacity:.65;font-weight:400}
+  .rows{display:flex;flex-direction:column;gap:6px}
+  .row{display:flex;justify-content:space-between;font-size:12.5px;padding:3px 0}
+  .row .k{color:var(--sub)}
+  .row .v{font-family:var(--mono)}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+  .dot.good{background:var(--green)} .dot.warn{background:var(--amber)} .dot.critical{background:var(--crimson)}
+  .v.good{color:var(--green);font-weight:600} .v.warn{color:var(--amber);font-weight:600} .v.critical{color:var(--crimson);font-weight:600}
+  .ch-note{font-size:12px;color:var(--sub);line-height:1.6;border-left:2px solid var(--crimson);padding-left:10px}
+
+  .blockers{background:var(--crimson-soft);border:1px solid var(--crimson)}
+  .b-head{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .b-head .sq{color:var(--crimson);font-family:var(--mono)}
+  .b-item{margin-top:14px}
+  .b-title{font-size:13px;font-weight:700}
+  .b-body{font-size:12.5px;opacity:.85;line-height:1.7;margin-top:4px}
+  .b-owner{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:4px}
+
+  .r-head{font-size:13.5px;font-weight:700;margin-bottom:12px}
+  .r-head .dia{color:var(--gold);font-family:var(--mono);margin-right:8px}
+  .r-item{border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
+  .r-item:first-of-type{margin-top:0}
+  .r-name{font-size:13px;font-weight:600}
+  .r-cycle{font-size:12px;color:var(--sub);margin-top:3px}
+  .r-cycle b{color:var(--text);font-weight:600}
+  .r-agent{font-size:11.5px;color:var(--sub);font-family:var(--mono);margin-top:3px}
+
+  
+.trend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:18px}
+.trend{background:var(--panel-soft);border:1px solid var(--line);border-radius:6px;padding:12px 10px}
+.t-label{font-size:11.5px;color:var(--sub);letter-spacing:.06em;margin-bottom:4px;padding-left:4px}
+.spark{width:100%;height:auto;display:block}
+.spark .ax{font-family:var(--mono);font-size:8px;fill:#6B747E}
+.spark .vl{font-family:var(--mono);font-size:10px;font-weight:700;fill:var(--text)}
+.t-note{font-size:11px;color:var(--sub);line-height:1.5;margin-top:6px;padding-left:4px}
+.t-note b{color:var(--text)}
+table.hist{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px}
+table.hist th{color:var(--sub);font-weight:600;font-size:10px;text-align:right;padding:6px 4px;border-bottom:1px solid var(--line);line-height:1.3}
+table.hist th:first-child{text-align:left}
+table.hist td{text-align:right;padding:6px 4px;border-bottom:1px solid rgba(42,51,62,.5)}
+table.hist td.d{text-align:left;color:var(--sub)}
+table.hist tbody tr:last-child td{border-bottom:none;font-weight:700}
+.dl{font-size:9.5px;margin-left:5px;font-weight:400}
+.dl.up{color:var(--green)}
+.dl.flat{color:#6B747E}
+.hist-note{font-size:10.5px;color:var(--sub);margin-top:10px;line-height:1.6}
+@media(max-width:520px){table.hist{font-size:10px}table.hist th{font-size:9px}}
+
+.goals-card .r-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+.deadline{font-family:var(--mono);font-size:10.5px;color:var(--sub);font-weight:400;letter-spacing:0}
+.goal{margin-bottom:14px}
+.goal:last-of-type{margin-bottom:4px}
+.g-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px;margin-bottom:5px}
+.g-label{font-size:12.5px;font-weight:600}
+.g-src{font-family:var(--mono);font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:7px;letter-spacing:.04em;vertical-align:middle}
+.g-owner{background:rgba(201,162,39,.18);color:var(--gold)}
+.g-prop{background:rgba(139,149,161,.18);color:var(--sub)}
+.g-meas{background:rgba(63,178,127,.15);color:var(--green)}
+.g-num{font-family:var(--mono);font-size:12px;color:var(--sub)}
+.g-num b{color:var(--text);font-size:13.5px}
+.g-sep{margin:0 5px;opacity:.5}
+.g-bar{height:5px;background:var(--panel-soft);border-radius:3px;overflow:hidden}
+.g-fill{height:100%;border-radius:3px}
+.g-foot{display:flex;justify-content:space-between;font-size:10.5px;color:var(--sub);margin-top:4px}
+.g-pct{font-family:var(--mono)}
+.g-legend{border-top:1px solid var(--line);margin-top:14px;padding-top:10px;font-size:10.5px;color:var(--sub);line-height:2}
+.g-legend .g-src{margin-left:0;margin-right:5px}
+.g-legend .g-src:not(:first-child){margin-left:14px}
+.footer{text-align:center;font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:24px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
   <div class="header">
-  <div><div class="eyebrow">OTOKOBIBLE.JP — HUB</div><h1>管理ダッシュボード</h1></div>
-  <div class="meta">実測 2026/07/20 5:43-5:45(月曜定例)<br>(Note売上・Pinterestは計測不可)<br>前回比較 2026/06/24</div>
+    <div>
+      <div class="eyebrow">OTOKOBIBLE.JP — HUB</div>
+      <h1>管理ダッシュボード</h1>
+    </div>
+    <div class="meta">実測 2026/07/21 10:37-10:39<br>（Note売上・Pinterestは計測不可＝下記参照）<br>前回比較 2026/06/24</div>
   </div>
+
   <div class="card milestone">
-  <div class="m-title">初売上 達成 — Note</div>
-  <div class="m-body">「40代男性の7割が知らない——男性ホルモンが激減する『3つの日常習慣』と、今夜から変える方法」(単体有料記事 ¥300)／購入 2026/07/11 23:22</div>
-  <div class="m-sub">販売履歴にて実測確定(2026/07/12 計測)</div>
+    <div class="m-title">初売上達成 — そして動線が完成</div>
+    <div class="m-body">2026/07/11 23:22、単体有料記事 ¥300 が初めて売れた（男性ホルモン×名指し型フック）。以降、同型の¥300記事を5本まで拡大。TikTok 7日連続投稿（#008）と組み合わせ、<b>集客→受け皿→課金の動線が7/21に初めて揃った</b>。</div>
+    <div class="m-sub">¥300記事：睡眠／内臓脂肪／疲労／貯金 ＋ 制作済み3本（転職・手元・探し物）</div>
   </div>
+
   <div class="card">
-  <div class="phase-head">
-  <div style="font-size:13px;font-weight:700"><span class="phase-label">Phase 1</span>目標 月商 ¥1,000,000</div>
-  <div style="font-family:var(--mono);font-size:13px">今月 <span style="color:var(--gold);font-weight:700">¥300</span><span style="color:var(--sub)"> / ¥1,000,000</span></div>
+    <div class="phase-head">
+      <div style="font-size:13px;font-weight:700"><span class="phase-label">Phase 1</span>目標 月商 ¥1,000,000</div>
+      <div style="font-family:var(--mono);font-size:13px">今月 <span style="color:var(--gold);font-weight:700">¥300</span><span style="color:var(--sub)"> / ¥1,000,000</span></div>
+    </div>
+    <div class="bar"><div class="bar-fill"></div></div>
+    <div class="phase-note">収益源はNoteメンバーシップ（¥2,980/月・初月無料）と単体¥300記事。まずは90日で¥50,000・有料会員10人を目指す。</div>
   </div>
-  <div class="bar"><div class="bar-fill"></div></div>
-  <div class="phase-note">収益源はNoteメンバーシップ(¥2,980/月・初月無料)と単体¥300記事。</div>
-  </div>
-  <div class="grid">
-  <div class="card ch" style="margin-bottom:0">
-  <div><div class="ch-name">Note</div><div class="ch-handle">如風(@ideal_squid1080)</div></div>
-  <div class="primary"><div class="p-label">フォロワー</div>
-  <div><span class="p-value">269</span><span class="delta up">+90 <span class="vs">vs 6/24</span></span></div></div>
-  <div class="rows">
-  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:43</span></div>
-  <div class="row"><span class="k"><span class="dot good"></span>今月売上</span><span class="v good">¥300(7/12実測・1件)</span></div>
-  <div class="row"><span class="k"><span class="dot warn"></span>売上の当日計測</span><span class="v warn">不可(要PW再確認)</span></div>
-  <div class="row"><span class="k">記事総数</span><span class="v">144本(+1)</span></div>
-  <div class="row"><span class="k">初月無料</span><span class="v">ON</span></div>
-  </div>
-  <div class="ch-note">フォロワー+7(前日比)。TikTok失速下でも増加が続く＝Note単体で読者を獲得できている。9日間で+38。</div>
-  </div>
-  <div class="card ch" style="margin-bottom:0">
-  <div><div class="ch-name">TikTok</div><div class="ch-handle">@otokobible.jp</div></div>
-  <div class="primary"><div class="p-label">フォロワー</div>
-  <div><span class="p-value">1,500</span><span class="delta up">+200 <span class="vs">vs 6/24</span></span></div></div>
-  <div class="rows">
-  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:44</span></div>
-  <div class="row"><span class="k"><span class="dot warn"></span>動画視聴(7日間)</span><span class="v warn">1,186(-77.2%)下げ止まり</span></div>
-  <div class="row"><span class="k"><span class="dot critical"></span>いいね(7日間)</span><span class="v critical">26(-88.2%)</span></div>
-  <div class="row"><span class="k"><span class="dot critical"></span>純増フォロワー(7日)</span><span class="v critical">7人(-94.7%)</span></div>
-  <div class="row"><span class="k">視聴者属性</span><span class="v">男性68%／45歳↑72%</span></div>
-  </div>
-  <div class="ch-note">原因＝投稿頻度の低下(7月は5本のみ／従来は毎日)。7/20は下げ止まりの兆し:おすすめ流入56%へ回復、シェア10件。対策＝指示書#008の7日連続投稿。</div>
-  </div>
-  <div class="card ch" style="margin-bottom:0">
-  <div><div class="ch-name">Pinterest</div><div class="ch-handle">@otokobible</div></div>
-  <div class="primary"><div class="p-label">月間ビュー</div>
-  <div><span class="p-value">1,655</span><span class="delta flat">7/10時点</span></div></div>
-  <div class="rows">
-  <div class="row"><span class="k">ピン</span><span class="v">22枚 / 目標1,000</span></div>
-  <div class="row"><span class="k"><span class="dot warn"></span>増産</span><span class="v warn">指示書#003 待機中</span></div>
-  </div>
-  <div class="ch-note">7/20も計測不可(9日連続)。数値はすべて7/10最終実測。スマホのビジネスハブ確認が唯一の計測手段。</div>
-  </div>
-  <div class="card ch" style="margin-bottom:0">
-  <div><div class="ch-name">Instagram</div><div class="ch-handle">@bible.of.men</div></div>
-  <div class="primary"><div class="p-label">フォロワー</div>
-  <div><span class="p-value">31</span><span class="delta up">+1 <span class="vs">vs 6/24</span></span></div></div>
-  <div class="rows">
-  <div class="row"><span class="k">計測時刻</span><span class="v">7/20 5:44</span></div>
-  <div class="row"><span class="k"><span class="dot good"></span>投稿</span><span class="v good">71本(+1)</span></div>
-  <div class="row"><span class="k">実施手段</span><span class="v">スマホアプリ</span></div>
-  </div>
-  <div class="ch-note">投稿が着実に増加。Reels転用が動き始めた。</div>
-  </div>
-  </div>
-  <div class="card blockers">
-  <div class="b-head"><span class="sq">■</span>最優先課題</div>
-  <div class="b-item">
-  <div class="b-title">① TikTok復活(指示書#008)</div>
-  <div class="b-body">7日連続投稿への復帰。台本7本はClaude Codeで生産中。投稿は毎朝7〜8時に固定(フォロワー最活性が午前8時と実測)。</div>
-  <div class="b-owner">担当: Claude Code(台本)→ 会長(撮影・投稿)</div>
-  </div>
-  <div class="b-item">
-  <div class="b-title">② Pinterest計測手段の確立</div>
-  <div class="b-body">デスクトップから9日連続で計測不可。スマホのビジネスハブ経由の定常化が必要。</div>
-  <div class="b-owner">担当: 会長(スマホ)</div>
-  </div>
-  </div>
-  <div class="card">
-  <div class="r-head"><span class="dia">◆</span>定常ルーティン</div>
-  <div class="r-item">
-  <div class="r-name">定例KPIレビュー(全チャネル実測)</div>
-  <div class="r-cycle">サイクル: 毎週月曜 9:00　／　次回: <b>7/27(月)</b></div>
-  <div class="r-agent">実行: 黒ちゃん + Claude in Chrome</div>
+
+  
+<div class="card goals-card">
+<div class="r-head"><span class="dia">◆</span>目標と進捗
+<span class="deadline">90日目標の期限 2026/10/19 — 残り90日</span></div>
+<div class="goal">
+<div class="g-top"><span class="g-label">月商<span class="g-src g-owner">会長</span></span>
+<span class="g-num"><b>¥300</b><span class="g-sep">/</span>¥1,000,000</span></div>
+<div class="g-bar"><div class="g-fill" style="width:0.6%;background:var(--crimson)"></div></div>
+<div class="g-foot"><span>Phase 1 最終目標</span><span class="g-pct">0.0%</span></div>
+</div><div class="goal">
+<div class="g-top"><span class="g-label">Note 有料会員<span class="g-src g-owner">確定</span></span>
+<span class="g-num"><b>0人</b><span class="g-sep">/</span>10人</span></div>
+<div class="g-bar"><div class="g-fill" style="width:0.6%;background:var(--crimson)"></div></div>
+<div class="g-foot"><span>継続課金の証明ライン</span><span class="g-pct">0.0%</span></div>
+</div><div class="goal">
+<div class="g-top"><span class="g-label">TikTok フォロワー<span class="g-src g-owner">確定</span></span>
+<span class="g-num"><b>1,500人</b><span class="g-sep">/</span>5,000人</span></div>
+<div class="g-bar"><div class="g-fill" style="width:30.0%;background:var(--gold)"></div></div>
+<div class="g-foot"><span>グッズ展開の解禁条件</span><span class="g-pct">30.0%</span></div>
+</div><div class="goal">
+<div class="g-top"><span class="g-label">月商（90日）<span class="g-src g-owner">確定</span></span>
+<span class="g-num"><b>¥300</b><span class="g-sep">/</span>¥50,000</span></div>
+<div class="g-bar"><div class="g-fill" style="width:0.6%;background:var(--crimson)"></div></div>
+<div class="g-foot"><span>10/19までの中間目標</span><span class="g-pct">0.6%</span></div>
+</div><div class="goal">
+<div class="g-top"><span class="g-label">TikTok 7日視聴<span class="g-src g-meas">実測</span></span>
+<span class="g-num"><b>1,094回</b><span class="g-sep">/</span>6,760回</span></div>
+<div class="g-bar"><div class="g-fill" style="width:16.2%;background:var(--crimson)"></div></div>
+<div class="g-foot"><span>7/12の失速前水準へ回復</span><span class="g-pct">16.2%</span></div>
+</div><div class="goal">
+<div class="g-top"><span class="g-label">Pinterest ピン<span class="g-src g-owner">会長</span></span>
+<span class="g-num"><b>22枚</b><span class="g-sep">/</span>1,000枚</span></div>
+<div class="g-bar"><div class="g-fill" style="width:2.2%;background:var(--crimson)"></div></div>
+<div class="g-foot"><span>コンテンツ自販機1,000台</span><span class="g-pct">2.2%</span></div>
 </div>
-<div class="r-item">
-<div class="r-name">ダッシュボード更新</div>
-  <div class="r-cycle">サイクル: 毎日 5:00(HUBで「更新」と一言)</div>
-  <div class="r-agent">実行: 黒ちゃん(実測・反映)</div>
+<div class="g-legend">
+<span class="g-src g-owner">会長</span>会長が設定した目標
+<span class="g-src g-meas">実測</span>過去の実測値を基準にした回復目標（2026/07/21 会長承認）
+</div>
+</div>
+
+<div class="grid">
+
+    <div class="card ch" style="margin-bottom:0">
+      <div>
+        <div class="ch-name">Note</div>
+        <div class="ch-handle">如風（@ideal_squid1080）</div>
+      </div>
+      <div class="primary">
+        <div class="p-label">フォロワー</div>
+        <div><span class="p-value">280</span><span class="delta up">+101 <span class="vs">vs 6/24</span></span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">計測時刻</span><span class="v">7/21 10:37</span></div>
+        <div class="row"><span class="k"><span class="dot good"></span>今月売上</span><span class="v good">¥300（7/12実測・1件）</span></div>
+        <div class="row"><span class="k"><span class="dot warn"></span>売上の当日計測</span><span class="v warn">不可（要PW再確認）</span></div>
+        <div class="row"><span class="k">記事総数</span><span class="v">145本（+1）</span></div>
+        <div class="row"><span class="k">初月無料</span><span class="v">ON（会長確認済）</span></div>
+      </div>
+      <div class="ch-note">フォロワー+11（前日比・過去最大の日次増）。10日間で+60。TikTok失速下でも増加が続き、Note単体の集客力が確立しつつある。</div>
+    </div>
+
+    <div class="card ch" style="margin-bottom:0">
+      <div>
+        <div class="ch-name">TikTok</div>
+        <div class="ch-handle">@otokobible.jp</div>
+      </div>
+      <div class="primary">
+        <div class="p-label">フォロワー</div>
+        <div><span class="p-value">1,500</span><span class="delta up">+200 <span class="vs">vs 6/24</span></span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">計測時刻</span><span class="v">7/21 10:37</span></div>
+        <div class="row"><span class="k"><span class="dot warn"></span>動画視聴（7日間）</span><span class="v warn">1,094（-76.4%）底ばい</span></div>
+        <div class="row"><span class="k"><span class="dot critical"></span>いいね（7日間）</span><span class="v critical">22（-88.2%）</span></div>
+        <div class="row"><span class="k"><span class="dot critical"></span>純増フォロワー（7日）</span><span class="v critical">7人（-94.1%）</span></div>
+        <div class="row"><span class="k">おすすめ流入率</span><span class="v">58.7%（4日連続回復）</span></div>
+      </div>
+      <div class="ch-note">✅ 7/21より #008 の7日連続投稿を開始（5日分を制作・予約投稿まで完了）。おすすめ流入率が4日連続で回復中（44.5%→58.7%）＝復調の先行指標。視聴数への反映は数日遅れるため判定は7/28。</div>
+    </div>
+
+    <div class="card ch" style="margin-bottom:0">
+      <div>
+        <div class="ch-name">Pinterest</div>
+        <div class="ch-handle">@otokobible</div>
+      </div>
+      <div class="primary">
+        <div class="p-label">月間ビュー</div>
+        <div><span class="p-value">1,655</span><span class="delta up">+179% <span class="vs">vs 6/24</span></span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">ピン</span><span class="v">22枚 / 目標1,000</span></div>
+        <div class="row"><span class="k">自販機設置率</span><span class="v">2.2%</span></div>
+        <div class="row"><span class="k"><span class="dot warn"></span>増産</span><span class="v warn">指示書#003 待機中</span></div>
+      </div>
+      <div class="ch-note">7/21も計測不可（10日連続）。数値はすべて7/10最終実測。スマホのビジネスハブ確認が唯一の計測手段。</div>
+    </div>
+
+    <div class="card ch" style="margin-bottom:0">
+      <div>
+        <div class="ch-name">Instagram</div>
+        <div class="ch-handle">@bible.of.men</div>
+      </div>
+      <div class="primary">
+        <div class="p-label">フォロワー</div>
+        <div><span class="p-value">30</span><span class="delta flat">±0 <span class="vs">vs 6/24</span></span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">計測時刻</span><span class="v">7/21 10:37</span></div>
+        <div class="row"><span class="k"><span class="dot good"></span>投稿</span><span class="v good">76本（+5）</span></div>
+        <div class="row"><span class="k"><span class="dot good"></span>Reels転用</span><span class="v good">稼働中</span></div>
+        <div class="row"><span class="k">実施手段</span><span class="v">スマホアプリ（要手動）</span></div>
+      </div>
+      <div class="ch-note">投稿が1日で+5本（TikTok素材の転用が本格化）。フォロワーは30で横ばい、投入量に対する反応を今後観察。</div>
+    </div>
+
   </div>
-  <div class="r-item">
-  <div class="r-name">指示書#005: 健康×名指し型¥300記事</div>
-  <div class="r-cycle">1本目(睡眠)7/14公開済　／　残り2本</div>
-  <div class="r-agent">実行: Claude Code → 黒ちゃん検収 → 会長承認</div>
+
+  
+<div class="card">
+<div class="r-head"><span class="dia">◆</span>推移（すべて当日実測値）</div>
+
+<div class="trend-grid">
+<div class="trend">
+<div class="t-label">Note フォロワー</div>
+<svg viewBox="0 0 300 120" class="spark">
+<path d="M8.0,90.1 L71.1,86.8 L102.7,83.5 L165.8,77.9 L228.9,43.8 L260.4,36.1 L292.0,23.9 L292.0,100 L8.0,100 Z" fill="#3FB27F" opacity="0.10"/>
+<path d="M8.0,90.1 L71.1,86.8 L102.7,83.5 L165.8,77.9 L228.9,43.8 L260.4,36.1 L292.0,23.9" fill="none" stroke="#3FB27F" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="8.0" cy="90.1" r="2.5" fill="#3FB27F"/><circle cx="71.1" cy="86.8" r="2.5" fill="#3FB27F"/><circle cx="102.7" cy="83.5" r="2.5" fill="#3FB27F"/><circle cx="165.8" cy="77.9" r="2.5" fill="#3FB27F"/><circle cx="228.9" cy="43.8" r="2.5" fill="#3FB27F"/><circle cx="260.4" cy="36.1" r="2.5" fill="#3FB27F"/><circle cx="292.0" cy="23.9" r="2.5" fill="#3FB27F"/><text x="8.0" y="114" text-anchor="middle" class="ax">12</text><text x="71.1" y="114" text-anchor="middle" class="ax">14</text><text x="102.7" y="114" text-anchor="middle" class="ax">15</text><text x="165.8" y="114" text-anchor="middle" class="ax">17</text><text x="228.9" y="114" text-anchor="middle" class="ax">19</text><text x="260.4" y="114" text-anchor="middle" class="ax">20</text><text x="292.0" y="114" text-anchor="middle" class="ax">21</text>
+<text x="8.0" y="83.1" text-anchor="start" class="vl">220</text>
+<text x="292.0" y="16.9" text-anchor="end" class="vl" fill="#3FB27F">280</text>
+</svg>
+<div class="t-note">7/12→7/21で <b>+60人</b>。7/19以降に加速。</div>
+</div>
+<div class="trend">
+<div class="t-label">TikTok 動画視聴（直近7日）</div>
+<svg viewBox="0 0 300 120" class="spark">
+<path d="M8.0,23.9 L71.1,48.6 L102.7,47.1 L165.8,88.9 L228.9,89.4 L260.4,89.0 L292.0,90.1 L292.0,100 L8.0,100 Z" fill="#C41E3A" opacity="0.10"/>
+<path d="M8.0,23.9 L71.1,48.6 L102.7,47.1 L165.8,88.9 L228.9,89.4 L260.4,89.0 L292.0,90.1" fill="none" stroke="#C41E3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="8.0" cy="23.9" r="2.5" fill="#C41E3A"/><circle cx="71.1" cy="48.6" r="2.5" fill="#C41E3A"/><circle cx="102.7" cy="47.1" r="2.5" fill="#C41E3A"/><circle cx="165.8" cy="88.9" r="2.5" fill="#C41E3A"/><circle cx="228.9" cy="89.4" r="2.5" fill="#C41E3A"/><circle cx="260.4" cy="89.0" r="2.5" fill="#C41E3A"/><circle cx="292.0" cy="90.1" r="2.5" fill="#C41E3A"/><text x="8.0" y="114" text-anchor="middle" class="ax">12</text><text x="71.1" y="114" text-anchor="middle" class="ax">14</text><text x="102.7" y="114" text-anchor="middle" class="ax">15</text><text x="165.8" y="114" text-anchor="middle" class="ax">17</text><text x="228.9" y="114" text-anchor="middle" class="ax">19</text><text x="260.4" y="114" text-anchor="middle" class="ax">20</text><text x="292.0" y="114" text-anchor="middle" class="ax">21</text>
+<text x="8.0" y="16.9" text-anchor="start" class="vl">6,760</text>
+<text x="292.0" y="83.1" text-anchor="end" class="vl" fill="#C41E3A">1,094</text>
+</svg>
+<div class="t-note">7/15→7/17に急落。以降1,100前後で底ばい。</div>
+</div>
+<div class="trend">
+<div class="t-label">TikTok おすすめ流入率</div>
+<svg viewBox="0 0 300 120" class="spark">
+<path d="M8.0,23.9 L165.8,90.1 L228.9,82.3 L260.4,71.5 L292.0,67.2 L292.0,100 L8.0,100 Z" fill="#C9A227" opacity="0.10"/>
+<path d="M8.0,23.9 L165.8,90.1 L228.9,82.3 L260.4,71.5 L292.0,67.2" fill="none" stroke="#C9A227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="8.0" cy="23.9" r="2.5" fill="#C9A227"/><circle cx="165.8" cy="90.1" r="2.5" fill="#C9A227"/><circle cx="228.9" cy="82.3" r="2.5" fill="#C9A227"/><circle cx="260.4" cy="71.5" r="2.5" fill="#C9A227"/><circle cx="292.0" cy="67.2" r="2.5" fill="#C9A227"/><text x="8.0" y="114" text-anchor="middle" class="ax">12</text><text x="165.8" y="114" text-anchor="middle" class="ax">17</text><text x="228.9" y="114" text-anchor="middle" class="ax">19</text><text x="260.4" y="114" text-anchor="middle" class="ax">20</text><text x="292.0" y="114" text-anchor="middle" class="ax">21</text>
+<text x="8.0" y="16.9" text-anchor="start" class="vl">85.5%</text>
+<text x="292.0" y="60.2" text-anchor="end" class="vl" fill="#C9A227">58.7%</text>
+</svg>
+<div class="t-note">7/17を底に <b>4日連続で回復</b>。復調の先行指標。</div>
+</div>
+</div>
+
+<table class="hist">
+<thead><tr><th>日付</th><th>Note<br>フォロワー</th><th>Note<br>記事</th><th>TikTok<br>7日視聴</th><th>おすすめ<br>流入率</th><th>IG<br>投稿</th><th>IG<br>フォロワー</th></tr></thead>
+<tbody><tr><td class="d">7/12</td><td>220<span class="dl flat">—</span></td><td>—</td><td>6,760</td><td>85.5%</td><td>68</td><td>30</td></tr><tr><td class="d">7/14</td><td>223<span class="dl up">+3</span></td><td>137</td><td>4,644</td><td>—</td><td>69</td><td>30</td></tr><tr><td class="d">7/15</td><td>226<span class="dl up">+3</span></td><td>139</td><td>4,775</td><td>—</td><td>69</td><td>30</td></tr><tr><td class="d">7/17</td><td>231<span class="dl up">+5</span></td><td>141</td><td>1,195</td><td>44.5%</td><td>69</td><td>30</td></tr><tr><td class="d">7/19</td><td>262<span class="dl up">+31</span></td><td>143</td><td>1,150</td><td>49.3%</td><td>70</td><td>31</td></tr><tr><td class="d">7/20</td><td>269<span class="dl up">+7</span></td><td>144</td><td>1,186</td><td>56.0%</td><td>71</td><td>31</td></tr><tr><td class="d">7/21</td><td>280<span class="dl up">+11</span></td><td>145</td><td>1,094</td><td>58.7%</td><td>76</td><td>30</td></tr></tbody>
+</table>
+<div class="hist-note">※ 空欄「—」は当日未取得。数値はすべてその日にブラウザで実測したもので、推定値・前回値の転記は含みません。</div>
+</div>
+
+<div class="card blockers">
+    <div class="b-head"><span class="sq">■</span>最優先課題 2件</div>
+    <div class="b-item">
+      <div class="b-title">① TikTok復活（指示書#008）— 実行中</div>
+      <div class="b-body">7/21スタート。台本7本完成、うち5日分を制作・予約投稿まで完了。残りDay6（ガジェット）・Day7（健康アファ／最軽量）。判定は7/28、フック型別の勝敗を分析して翌週は勝った型へ寄せる。</div>
+      <div class="b-owner">担当: 会長（残り2本の制作）→ 黒ちゃん（7/28再評価）</div>
+    </div>
+    <div class="b-item">
+      <div class="b-title">② Pinterest 計測手段の確立</div>
+      <div class="b-body">デスクトップから10日連続で計測不可（描画・API両方ブロック）。数値は7/10実測のまま。スマホのビジネスハブ経由での定常化が必要。</div>
+      <div class="b-owner">担当: 会長（スマホで月間ビュー・フォロワーの2項目）</div>
+    </div>
   </div>
-  <div class="r-item">
-  <div class="r-name">メンバーシップ記事 週次生産</div>
-  <div class="r-cycle">サイクル: 4週テーマローテ　／　<b>検収ゲート運用中</b></div>
-  <div class="r-agent">実行: Claude Code</div>
+
+  <div class="card">
+    <div class="r-head"><span class="dia">◆</span>定常ルーティン</div>
+    <div class="r-item">
+      <div class="r-name">定例KPIレビュー（全チャネル実測）</div>
+      <div class="r-cycle">サイクル: 毎週月曜　／　次回: <b>7/27（月）</b>　／　#008判定: <b>7/28（火）</b></div>
+      <div class="r-agent">実行: 黒ちゃん + Claude in Chrome</div>
+    </div>
+    <div class="r-item">
+      <div class="r-name">ダッシュボード更新</div>
+      <div class="r-cycle">サイクル: 毎日（HUBで「ボード更新」と一言）　／　公開URLへの反映は Claude in Chrome 経由</div>
+      <div class="r-agent">実行: 黒ちゃん（実測・HTML生成）</div>
+    </div>
+    <div class="r-item">
+      <div class="r-name">TikTok 毎日投稿（#008）</div>
+      <div class="r-cycle">7/21〜7/27　／　投稿枠: <b>毎朝7:00〜8:00 固定</b>（フォロワー最活性が午前8時と実測）</div>
+      <div class="r-agent">実行: 会長（撮影・投稿）</div>
+    </div>
+    <div class="r-item">
+      <div class="r-name">¥300記事の受け皿整備</div>
+      <div class="r-cycle">公開済4本（睡眠・内臓脂肪・疲労・貯金）　／　制作済・未公開: <b>転職・手元・探し物</b></div>
+      <div class="r-agent">実行: 黒ちゃん（執筆）→ 会長（公開判断）</div>
+    </div>
+    <div class="r-item">
+      <div class="r-name">メンバーシップ記事 週次生産</div>
+      <div class="r-cycle">サイクル: 4週テーマローテ　／　<b>検収ゲート運用中</b></div>
+      <div class="r-agent">実行: Claude Code → 黒ちゃん検収</div>
+    </div>
   </div>
-  </div>
-  <div class="footer">発行: 黒ちゃん(HUB)— 指示・検収・進捗管理</div>
-  </div>
-  </body>
-  </html>
+
+  <div class="footer">発行: 黒ちゃん（HUB）— 指示・検収・進捗管理</div>
+</div>
+</body>
+</html>
