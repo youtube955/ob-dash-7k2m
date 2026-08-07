@@ -15,7 +15,7 @@ h1{font-size:20px;margin:0 0 4px}.meta{color:var(--sub);font-size:12px;margin-bo
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
 .kpi{background:var(--soft);border-radius:8px;padding:12px}
 .kpi .lb{font-size:12px;color:var(--sub)}.kpi .v{font-size:24px;font-weight:700}
-.up{color:var(--good);font-size:12px}.fl{color:var(--sub);font-size:12px}
+.up{color:var(--good);font-size:12px}.fl{color:var(--sub);font-size:12px}.dn{color:var(--warn);font-size:12px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left}
 th{color:var(--sub);font-weight:600;font-size:12px}
@@ -27,43 +27,35 @@ th{color:var(--sub);font-weight:600;font-size:12px}
 .ft{color:var(--sub);font-size:12px;text-align:center;margin-top:20px}
 </style></head><body><div class="wrap">
 <h1>otokobible 管理ダッシュボード</h1>
-<div class="meta">実測 2026/08/03（Windsor.ai + note API）｜前回比較 2026/08/02<br>メディア本体は note.com/@ideal_squid1080（otokobible.jp は実在しないドメイン・2026/07/30 DNS実測で確定）</div>
-<div class="card"><div class="hd">◆ 全チャネルKPI（2026/08/03 実測）</div>
+<div class="meta">実測 2026/08/06（Windsor.ai + note API）｜前回比較 2026/08/03<br>メディア本体は note.com/@ideal_squid1080（otokobible.jp は実在しないドメイン・2026/07/30 DNS実測で確定）</div>
+<div class="card"><div class="hd">◆ 全チャネルKPI（2026/08/06 実測）</div>
 <div class="grid">
-<div class="kpi"><div class="lb">Note フォロワー</div><div class="v">315</div><div class="up">+4 vs 8/2</div></div>
-<div class="kpi"><div class="lb">Note 記事数</div><div class="v">162</div><div class="up">+1</div></div>
-<div class="kpi"><div class="lb">TikTok フォロワー</div><div class="v">1,607</div><div class="up">+8 vs 8/2（直近最大）</div></div>
-<div class="kpi"><div class="lb">TikTok 動画 / 総いいね</div><div class="v">132 / 6,130</div><div class="up">+2本 / +9</div></div>
-<div class="kpi"><div class="lb">Pinterest 月間ビュー</div><div class="v g">10,204</div><div class="up">+200 vs 8/2</div></div>
-<div class="kpi"><div class="lb">Pinterest ピン / ボード</div><div class="v">2,739 / 53</div><div class="fl">個人利用時代を含む</div></div>
+<div class="kpi"><div class="lb">Note フォロワー</div><div class="v">323</div><div class="up">+8 vs 8/3</div></div>
+<div class="kpi"><div class="lb">Note 記事数</div><div class="v">168</div><div class="up">+6</div></div>
+<div class="kpi"><div class="lb">TikTok フォロワー</div><div class="v g">1,632</div><div class="up">+25 vs 8/3</div></div>
+<div class="kpi"><div class="lb">TikTok 動画 / 総いいね</div><div class="v">129 / 6,093</div><div class="fl">-3本（会長が削除）</div></div>
+<div class="kpi"><div class="lb">Pinterest 月間ビュー</div><div class="v g">11,197</div><div class="up">+993 vs 8/3</div></div>
+<div class="kpi"><div class="lb">Pinterest ピン / ボード</div><div class="v">2,432 / 53</div><div class="fl">-307枚（会長が整理）</div></div>
 <div class="kpi"><div class="lb">Pinterest フォロワー</div><div class="v">11</div><div class="fl">±0</div></div>
 <div class="kpi"><div class="lb">メンバーシップ会員</div><div class="v c">0</div><div class="fl">¥2,980/月・初月無料</div></div>
 </div>
-<div class="note"><b>計測不可</b>：Note売上（7/12が最終実測）／TikTok検索クエリ（Studio画面が必要）。推定値での記入は禁止。</div>
+<div class="note"><b>TikTok +25・Pinterest +993 と好調。</b>動画3本とピン307枚の減少は、いずれも会長による意図的な削除・整理（2026/08/06 確認済み）。<br><b>計測不可</b>：Note売上（7/12が最終実測）／TikTok検索クエリ（Studio画面が必要）。推定値での記入は禁止。</div>
 </div>
-<div class="card"><div class="hd">◆ 【新】フック改善の効果を確認（8/1 丈 vs 7/31 靴）</div>
-<table><thead><tr><th>指標</th><th>靴（7/31）</th><th>丈（8/1）</th><th>差</th></tr></thead><tbody>
-<tr><td>尺</td><td>38.5s</td><td>32.3s</td><td>-6.2s</td></tr>
-<tr><td>視聴</td><td>210</td><td class="g">306</td><td class="g">+46%</td></tr>
-<tr><td><b>完走率</b></td><td class="c">1.73%</td><td class="g"><b>11.57%</b></td><td class="g"><b>6.7倍</b></td></tr>
-<tr><td>平均視聴</td><td class="c">4.75s</td><td class="g">9.27s</td><td class="g">2.0倍</td></tr>
-<tr><td>視聴率</td><td class="c">12%</td><td class="g">29%</td><td class="g">2.4倍</td></tr>
-<tr><td>新規フォロワー</td><td class="c">0</td><td class="g">+1</td><td>—</td></tr>
-</tbody></table>
-<div class="note"><b>完走率11.57%は全動画中トップクラス</b>（斎藤一人11.35%・中村天風11.67%と同水準）。<br><b>何が違ったか</b>：主語が「靴」（モノ）→「40代のファッション」（読者の領域）に変わった。提示も「10歳老けさせる」（脅し）→「サイズより丈」（<b>発見</b>）へ。<br><b>脅すより「そこだったのか」と気づかせる方が最後まで見られる。</b>会長の「ポジティブな場所」方針とも一致。<br>※ 尺も6.2秒短いため、フック単独の効果とは断定できない。</div>
-</div>
-<div class="card"><div class="hd">◆ 動画別パフォーマンス（累積）</div>
+<div class="card"><div class="hd">◆ 差を生んでいるのは「フック」と確定</div>
 <table><thead><tr><th>動画</th><th>尺</th><th>視聴</th><th>平均視聴</th><th>視聴率</th><th>新規F</th></tr></thead><tbody>
 <tr><td><b>3着の法則</b>（名前あり）</td><td>51.0s</td><td class="g"><b>19,361</b></td><td>10.49s</td><td>21%</td><td class="g"><b>+424</b></td></tr>
 <tr><td><b>脱オーバーサイズ</b>（名前あり）</td><td>52.2s</td><td class="g">4,303</td><td>12.17s</td><td>23%</td><td>+51</td></tr>
 <tr><td><b>丈（8/1）</b></td><td class="g">32.3s</td><td>306</td><td class="g">9.27s</td><td class="g">29%</td><td>+1</td></tr>
 <tr><td>アファメーション（7/30）</td><td>51.8s</td><td>291</td><td class="g">22.54s</td><td class="g">43%</td><td>+3</td></tr>
-<tr><td class="c">靴（7/31・名前なし）</td><td>38.5s</td><td>210</td><td class="c">4.75s</td><td class="c">12%</td><td class="c">0</td></tr>
+<tr><td class="c">靴（7/31・名前なし）</td><td>38.5s</td><td class="c">210</td><td class="c">4.75s</td><td class="c">12%</td><td class="c">0</td></tr>
 </tbody></table>
-<div class="note"><b>勝ちフックには必ず概念の名前がある。</b>靴だけ名前がなく、主語がモノだった。<br>※ Windsorの video_create_datetime は実際の投稿時刻ではない（会長は朝のみ投稿）。時刻仮説は撤回済み。</div>
+<div class="note"><b>靴は最短尺（38.5秒）なのに平均視聴が4.75秒（12%）。</b>尺ではなくフックの差。<b>勝ちフックには必ず概念の名前がある。</b><br>※ Windsorの video_create_datetime は実際の投稿時刻ではない（会長は朝のみ投稿）。時刻仮説は撤回済み。</div>
+</div>
+<div class="card"><div class="hd">◆ 体制：Claude Code版「黒ちゃん」稼働開始（2026/08/06）</div>
+<div class="note" style="margin-top:0"><b>会長 → 黒ちゃん（HUB・指示役）→ 6名のサブエージェント → 検収 → 会長</b><br>エージェント：analyst／scriptwriter／writer／strategist／pinterest／instagram<br>リポジトリ：<b>github.com/youtube955/otokobible-ops</b>（CLAUDE.md・エージェント定義・実測データベース）<br>GitHub同期により、どのPCからでも同じ黒ちゃんが起動する。<br><b>運用ルール</b>：作業前に git pull／作業後に git push。古いデータで判断しないため。</div>
 </div>
 <div class="card"><div class="hd">◆ アカウントの方向性（会長指示）</div>
-<div class="note" style="margin-top:0"><b>「一流の男、および一流になりたい男が集まる、ポジティブになれる場所」を目指す。</b><br>読後感は「こうなりたい」（憧れ）で終わらせる。見下す・煽る・不安だけを残すのは禁止。<b>集めるのは格差型、留めるのは憧れ型。</b></div>
+<div class="note" style="margin-top:0"><b>「一流の男、および一流になりたい男が集まる、ポジティブになれる場所」を目指す。</b><br>読後感は「こうなりたい」（憧れ）で終わらせる。見下す・煽る・不安だけを残すのは禁止。<br><b>ターゲットは「中年層の、一流を目指す人」</b>（視聴者の43.7%が55歳以上のため、フックでは年齢で括らない）。<br><b>執筆の姿勢：ラブレターを書く。</b>「どうしたら、この人に振り向いてもらえるか」を書く前に必ず問う。</div>
 </div>
 <div class="card"><div class="hd">◆ 日次履歴（otokobible）</div>
 <table><thead><tr><th>日付</th><th>Noteフォロワー</th><th>Note記事</th><th>TikTokフォロワー</th><th>Pinterest月間ビュー</th></tr></thead><tbody>
@@ -72,28 +64,29 @@ th{color:var(--sub);font-weight:600;font-size:12px}
 <tr><td>7/31</td><td>305</td><td>160</td><td>1,590</td><td>9,473</td></tr>
 <tr><td>8/1</td><td>308</td><td>161</td><td>1,598</td><td>9,719</td></tr>
 <tr><td>8/2</td><td>311</td><td>161</td><td>1,599</td><td>10,004</td></tr>
-<tr><td><b>8/3</b></td><td><b>315</b></td><td><b>162</b></td><td class="g"><b>1,607</b></td><td class="g"><b>10,204</b></td></tr>
+<tr><td>8/3</td><td>315</td><td>162</td><td>1,607</td><td>10,204</td></tr>
+<tr><td><b>8/6</b></td><td><b>323</b></td><td><b>168</b></td><td class="g"><b>1,632</b></td><td class="g"><b>11,197</b></td></tr>
 </tbody></table></div>
 <div class="card"><div class="hd">◆ 現在の課題と次のアクション</div>
 <table><thead><tr><th>優先</th><th>内容</th><th>状態</th></tr></thead><tbody>
 <tr><td>1</td><td><b>メンバーシップ会員 0人→1人</b></td><td class="c">最重要</td></tr>
-<tr><td>2</td><td>「一流の男」シリーズ7本（「9割」型フック統一・8/3-8/9）</td><td class="w">台本完成・未投稿</td></tr>
-<tr><td>3</td><td>¥500記事「一流の男が絶対にやらない7つのこと」公開</td><td class="w">原稿完成</td></tr>
-<tr><td>4</td><td>色のnote記事を公開（丈は8/1に公開済み）</td><td class="w">原稿完成</td></tr>
+<tr><td>2</td><td>「一流の男」シリーズ台本7本（8/5-8/11）</td><td class="w">出力済・投稿中</td></tr>
+<tr><td>3</td><td>Claude Code黒ちゃんで指示書運用を開始</td><td class="g">環境構築完了</td></tr>
+<tr><td>4</td><td>@marlboromanaym の保存数を13→50へ</td><td class="w">改善案適用中</td></tr>
 </tbody></table>
-<div class="note"><b>8/10判定</b>：「9割」型フックを7日間統一して検証中。平均視聴率が靴（12%）を上回るか、後半で落ちないか（型の飽き）を見る。<b>丈が29%を記録したため、基準は「29%を維持できるか」に引き上げる。</b></div>
+<div class="note"><b>8/12判定</b>：「一流の男」シリーズで、フック型（できている側を数える）の効果を検証。平均視聴率が丈の29%を上回るかを見る。</div>
 </div>
 <div class="sep"><span>以下は別事業（otokobibleとは無関係）</span></div>
 <div class="card card2"><div class="hd hd2">◆ 別事業：@marlboromanaym（なお・AI写真）</div>
 <div class="grid">
-<div class="kpi"><div class="lb">フォロワー</div><div class="v">606</div><div class="fl">-1 vs 8/2</div></div>
-<div class="kpi"><div class="lb">投稿数</div><div class="v">57</div><div class="fl">±0</div></div>
+<div class="kpi"><div class="lb">フォロワー</div><div class="v g">627</div><div class="up">+21 vs 8/3</div></div>
+<div class="kpi"><div class="lb">投稿数</div><div class="v">61</div><div class="up">+4</div></div>
 <div class="kpi"><div class="lb">30日の新規フォロワー</div><div class="v g">385</div><div class="up">日平均12.8人</div></div>
 <div class="kpi"><div class="lb">エンゲージメント率</div><div class="v g">28.0%</div><div class="fl">対リーチ</div></div>
 <div class="kpi"><div class="lb">30日の保存数</div><div class="v c">13</div><div class="fl">目標50（写真集販売の判断基準）</div></div>
 <div class="kpi"><div class="lb">形式別リーチ</div><div class="v">139 / 54</div><div class="fl">REELS / IMAGE（2.6倍差）</div></div>
 </div>
-<div class="note note2"><b>otokobibleとは別事業のためKPIは完全に分離（会長指示 2026/08/02）。</b><br><b>61投稿の分析結果</b>：①REELSが画像の2.6倍のリーチ ②リーチ上位（863・643）とER上位（41.7%・38.9%）は別物 ③<b>ERが高いのは「負け」と「継続」の投稿</b>（DeNA敗戦41.7% vs 甲子園勝利13.9%）<br><b>保存が13件と極端に少ない</b>＝投稿が「その日の記録」で、後で見返す理由がない。将来のnote写真集販売には保存50件超が前提。改善案：コーデの内訳を書く／場所の実用情報を足す／シリーズ番号をつける／「🔖保存して〇〇に」を全投稿に入れる。</div>
+<div class="note note2"><b>otokobibleとは別事業のためKPIは完全に分離（会長指示 2026/08/02）。</b><br><b>実測</b>：①REELSが画像の2.6倍 ②ERが高いのは「負け」と「継続」（DeNA敗戦41.7% vs 甲子園勝利13.9%）③保存13件と少ない＝投稿が「その日の記録」で見返す理由がない<br><b>改善中</b>：コーデの内訳を書く／場所の実用情報を足す／シリーズ番号／「保存して〇〇に」を全投稿に入れる</div>
 </div>
 <div class="ft">発行: 黒ちゃん（HUB）｜数値はすべて当日実測。推定値・前回値の転記は禁止。</div>
 </div></body></html>
